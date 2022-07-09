@@ -10,6 +10,46 @@
   --primary-hover: #188ce8;
   --card-gap: 30px;
 }
+/* Стили для обнуления */
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+/* Стили для обнуления верхних отступов у элементов */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+/* Класс для обнуления базовых свойств у списков (ul) */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+/* Класс для обнуления базовых свойств у ссылок */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Свойства для корректного отображения картинок */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* Свойства для обнуления курсива у address */
+address {
+  font-style: normal;
+}
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -31,13 +71,6 @@ body {
   list-style: none;
 }
 
-h1,
-h2,
-h3 {
-  padding: 0;
-  margin: 0;
-}
-
 /* hidden */
 .visually-hidden {
   position: absolute;
@@ -52,10 +85,39 @@ h3 {
   margin: -1px;
 }
 
-.img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.section-no-padding {
+  padding-top: 0;
+  padding-bottom: 94px;
+}
+
+/* buttons */
+.button {
+  min-width: 73px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+  text-align: center;
+  color: var(--title-color);
+
+  background-color: var(--secondary-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 6px 22px;
+}
+
+.button-active,
+.button:hover,
+.button:focus {
+  color: var(--text-primary-color);
+  background-color: var(--active-color);
+  outline: none;
 }
 
 /* header */
@@ -77,7 +139,6 @@ h3 {
   font-weight: 700;
   font-size: 26px;
   line-height: 1.2;
-  text-decoration: none;
 }
 
 a {
@@ -120,7 +181,6 @@ a {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--title-color);
-  text-decoration: none;
 }
 
 .header-contact-link {
@@ -155,9 +215,7 @@ a {
 
 .footer-contact-link {
   line-height: 1.71;
-  font-style: normal;
   color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
 }
 
 .footer-contact-link.address {
@@ -165,22 +223,19 @@ a {
 }
 
 /* index.html */
-/* hero  ?*/
+/* hero  */
 .hero {
-  background-color: var(--hero-color);
-}
+  padding-top: 200px;
+  padding-bottom: 200px;
 
-.hero-container {
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  background-color: var(--hero-color);
 }
 
 .hero-title {
   max-width: 700px;
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 30px;
 
   font-weight: 900;
@@ -189,7 +244,6 @@ a {
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-
   color: var(--text-primary-color);
 }
 
@@ -212,16 +266,6 @@ a {
 
 /* advantages */
 
-.section {
-  padding-top: 94px;
-  padding-bottom: 94px;
-}
-
-.section-no-padding {
-  padding-top: 0;
-  padding-bottom: 94px;
-}
-
 .advantages-list {
   display: flex;
 }
@@ -235,7 +279,6 @@ a {
 }
 
 .advantage-subtitle {
-  margin-top: 0;
   margin-bottom: 10px;
 
   font-size: 14px;
@@ -245,7 +288,7 @@ a {
 }
 
 .advantage-text {
-  margin: 0;
+  margin-bottom: 0;
 
   line-height: 1.71;
   color: var(--text-color);
@@ -254,7 +297,6 @@ a {
 /* responsibilities */
 
 .section-title {
-  margin-top: 0;
   margin-bottom: 50px;
 
   font-size: 36px;
@@ -283,6 +325,7 @@ a {
 .team-item {
   flex-basis: calc((100% - 3 * var(--card-gap)) / 4);
 
+  background-color: var(--background);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
@@ -309,38 +352,11 @@ a {
 }
 
 .team-item .post {
-  margin-top: 0;
-  margin-bottom: 0;
-
   font-size: 16px;
   line-height: 1.19;
 }
 
 /* portfolio */
-/* buttons */
-.button {
-  min-width: 73px;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.62;
-  text-align: center;
-  color: var(--title-color);
-
-  background-color: var(--secondary-color);
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  padding: 6px 22px;
-}
-
-.button-active,
-.button:hover,
-.button:focus {
-  color: var(--text-primary-color);
-  background-color: var(--active-color);
-  outline: none;
-}
 
 /* projects */
 .projects-filter-list {
@@ -374,7 +390,6 @@ a {
 
 .project-link {
   display: block;
-  text-decoration: none;
   border: 1px solid #eeeeee;
 }
 
